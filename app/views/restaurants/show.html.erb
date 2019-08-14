@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <br>
+  <p>
+    <%= @restaurant.name %> is specialized in <strong><%= @restaurant.category %></strong> food. The address is <strong><%= @restaurant.address%></strong>.
+  </p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item" >
+      A customer said: <%= review.content %><br>
+      <strong>Rating: <%= review.rating %> </strong>
+    </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Write a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary mt-2" %>
+  <br>
+  <br>
+  <%= link_to 'All Restaurants', restaurants_path %>
+</div>
+
+
+
+
+
